@@ -1,4 +1,5 @@
 import { cal } from './cal';
+import { NumberToNumberFunc, add } from './high-order';
 
 type stringAndNumberFunction = (string, number) => void;
 
@@ -27,3 +28,8 @@ const expression: (a: number, b: number) => number = (
 console.log(expression(5, 7));
 
 cal(30, (result: number): void => console.log(result));
+
+let fn: NumberToNumberFunc = add(1);
+let result = fn(2);
+console.log(result);
+console.log(add(1)(2));
