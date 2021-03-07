@@ -1,5 +1,6 @@
 import { cal } from './cal';
 import { NumberToNumberFunc, add } from './high-order';
+import { init } from './init';
 
 type stringAndNumberFunction = (string, number) => void;
 
@@ -33,3 +34,5 @@ let fn: NumberToNumberFunc = add(1);
 let result = fn(2);
 console.log(result);
 console.log(add(1)(2));
+
+init(() => console.log('custom initialzation finished.'));
