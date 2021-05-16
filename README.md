@@ -32,3 +32,43 @@ export const init = (callback: () => void): void => {
 	console.log('all initializtion finished.');
 };
 ```
+
+# 중첩함수
+
+1. 변수에 담긴 함수표현식을 중첩함수라 한다.
+
+```typescript
+const cal = (value: number, cb: (number) => void): void => {
+	let add = (a, b) => a + b;
+	function multiply(a, b) {
+		return a * b;
+	}
+
+	let result = multiply(add(1, 2), value);
+	cb(result);
+};
+
+calc(30, (result: number) => console.log(`result is ${result}`));
+```
+
+# 메서드 체인
+
+객체의 메서드를 연속적으로 호출하는 방법을 의미함
+
+```typescript
+export class Calulator {
+	constructor(public value: number = 0) {}
+	add(value: number) {
+		this.value += value;
+		return this;
+	}
+	multiply(value: number) {
+		this.value *= value;
+		return this;
+	}
+}
+
+let calc = new Calulator();
+let result = calc.add(2).multiply(3).multiply(4).value;
+console.log(result);
+```

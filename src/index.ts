@@ -36,3 +36,13 @@ console.log(result);
 console.log(add(1)(2));
 
 init(() => console.log('custom initialzation finished.'));
+
+class B {
+	constructor(public value: number = 1) {}
+	method(): void {
+		console.log(`value is ${this.value}`);
+	}
+}
+
+let b: B = new B(55);
+b.method();
